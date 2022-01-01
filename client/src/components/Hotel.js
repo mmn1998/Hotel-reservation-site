@@ -11,24 +11,29 @@ export default function Hotel({ hotel }) {
     var myvar3;
     let price = document.getElementsByClassName('price');
     const handleChangePrice = (e) => {
-        console.log(e)
+        //console.log(e)
+        if(price[myvar2]!==undefined){
+            price[myvar2].innerHTML='';
+        }
         myvar1 = e.target.childNodes[e.target.selectedIndex].getAttribute('data-price')
         myvar2 = e.target.childNodes[0].getAttribute('data-id') - 1
     }
     const handleCount = (e) => {
         myvar3 = e.target.value
-        if (myvar3 !== null && myvar2 !== null && myvar3 !== null)
-            price[myvar2].innerHTML = myvar1 * myvar3
+        if (myvar3 !== null && myvar2 !== null && myvar3 !== null){
+            if(price[myvar2]!==undefined)
+                price[myvar2].innerHTML = myvar1 * myvar3
+        }
     }
     return (
         <div style={{ margin: '70px' }} className='shadow-lg p-3 mb-5 bg-white rounded'>
 
             <div onClick={handleShow}>
                 <h1>{hotel.name}</h1>
-                <img src={hotel.image} className="img-fluid" style={{ height: '200px', width: "300px" }} />
+                <img src={hotel.image} className="img-fluid my-img" />
             </div>
-            <div className="flex-container">
-                <div className='w-100'>
+            <div className="flex-container" style={{ marginTop: '1rem' }}>
+                <div className='w-100 our-content'>
                     <p>نوع تخت</p>
                     <select onChange={handleChangePrice}>
                         {hotel.prices.map(prices => {
@@ -36,7 +41,7 @@ export default function Hotel({ hotel }) {
                         })}
                     </select>
                 </div>
-                <div className='w-100'>
+                <div className='w-100 our-content'>
                     <p>شب</p>
                     <select onChange={handleCount}>
                         {[...Array(11).keys()].map((x, i) => {
@@ -44,16 +49,16 @@ export default function Hotel({ hotel }) {
                         })}
                     </select>
                 </div>
-
+                
             </div>
-            <div className="flex-container">
-                <div className='w-100 m-1'>
-                    <p>
-                        قيمت
+            <div className="flex-container" style={{ marginTop: '1rem'}}>
+                <div className='w-100 our-content' style={{ textAlign:'right',textIndent:'7px' }}>
+                    <p className='prices'>
+                        قيمت :
                     </p>
-                    <span className='price' data-index={hotel.ID}>  </span>
+                    <span className='price prices' data-index={hotel.ID}>  </span>
                 </div>
-                <div className='w-100 m-1'>
+                <div className='w-100 our-content'>
                     <button className="btn">رزرو</button>
                 </div>
                 </div>
@@ -65,6 +70,7 @@ export default function Hotel({ hotel }) {
                 </Modal.Header>
 
                 <Modal.Body>
+                    {/* <img src={hotel.image} style={{height:'200px' , width:'200px'}} /> */}
                     <img src={hotel.image} className="img-fluid" style={{height:'400px'}} />
                     <p>{hotel.ancillaryFacilities}</p>
                 </Modal.Body>

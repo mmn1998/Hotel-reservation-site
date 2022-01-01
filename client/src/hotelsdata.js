@@ -1,6 +1,3 @@
-
-
-
 const hotels = [{
     ID:1,
     name: "ساختمان یاس",

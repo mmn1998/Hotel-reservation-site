@@ -28,8 +28,63 @@ h1{
 }
 .flex-container{
   display: flex !important;
+  justify-content: space-evenly !important;
 }
 .btn{
   background-color: rgb(246, 114, 66) !important;
   color: white !important;
+  border-radius: 25px 10px 25px 10px !important;
+  transition: 1s;
+}
+.btn:hover{
+  background-color: rgb(241, 25, 25) !important;
+  color: #000 !important;
+  scale: 1.1;
+  transition: 0.5s;
+}
+.marging{
+  margin: 5rem;
+}
+
+.posiotioning{
+  width: 33% !important;
+}
+.prices{
+  display: inline-block;
+  margin: 0.5rem;
+}
+.text-input{
+  border-radius: 25px 10px 25px 10px;
+  transition: 0.5s;
+  border:0.5px solid rgb(246, 114, 66);
+}
+.text-input:focus,.text-input:hover{
+  scale: 1.1;
+  background-color: rgba(246, 114, 66,0.2);
+}
+.input-label{
+  border-radius: 25px 10px 25px 10px;
+  background-color: rgba(246, 114, 66,0.1);
+}
+.my-img{
+  height: 200px !important;
+  width: 300px;
+  border-radius: 50px;
+  transition: 0.75s;
+}
+.my-img:hover,.my-img:focus{
+  scale: 1.1;
+  transition: 0.5s;
+}
+.my-btn{
+  background-color: rgb(0, 189, 9);
+  color: #000 ;
+  border-radius: 25px 10px 25px 10px !important;
+  transition: 0.75s;
+}
+.my-btn:hover,.my-btn:focus{
+  background: rgb(21, 0, 112);
+  color: #fff;
+  scale: 1.05;
+  transition: 0.5s;
 }
